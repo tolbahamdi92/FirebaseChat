@@ -51,8 +51,20 @@ class UserFireBaseManager {
         }
     }
     
-    func getCurrentUser() -> String? {
+    func getCurrentUserID() -> String? {
         Auth.auth().currentUser?.uid
+    }
+    
+    func getUsers(completion: @escaping (([User]?) -> Void)) {
+        var userArr: [User]? = []
+        UserFireBaseManager.DBref.child(FireBase.users).observe(.value, with: { snap in
+            let sanpShot = snap.value as? [String:Any] ?? [:]
+            let snapDic = sanpShot.filter { $0.key != self.getCurrentUserID() ?? ""}.values
+            for dic in snapDic{
+                userArr?.append(self.userFromDic(dic: dic as! NSDictionary))
+            }
+            completion(userArr)
+        })
     }
 }
 
@@ -97,5 +109,13 @@ extension UserFireBaseManager {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             completion(result,error)
         }
+    }
+    
+    private func userFromDic(dic: NSDictionary) -> User {
+        let name = dic[UserKey.name] as! String
+        let gender = dic[UserKey.gender] as! String
+        let phone = dic[UserKey.phone] as! String
+        let avatar = dic[UserKey.avatar] as! String
+        return User(name: name, gender: gender, phone: phone, avatar: avatar)
     }
 }

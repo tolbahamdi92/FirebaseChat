@@ -54,6 +54,7 @@ struct UserDefaultsKeys {
 //MARK:- Cells
 struct Cells {
     static let genderCell: String = "Cell"
+    static let usersCell: String = "UsersTVCell"
 }
 
 //MARK:- ButtonsTitle
@@ -76,6 +77,15 @@ struct Images {
     static let mail: String = "mail"
     static let password: String = "password"
     static let defaultUserImg = "person.circle"
+    static let placeholder = "person.crop.circle.fill"
+}
+
+//MARK: UserKey
+struct UserKey {
+    static let name: String = "name"
+    static let gender: String = "gender"
+    static let phone: String = "phone"
+    static let avatar: String = "avatar"
 }
 
 //MARK:- ValidationRegex

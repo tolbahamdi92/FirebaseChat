@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func screenRootApp() {
-        if let _ = UserFireBaseManager.shared.getCurrentUser() {
+        if let _ = UserFireBaseManager.shared.getCurrentUserID() {
             gotoApp()
         }
     }

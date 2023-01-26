@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UsersTVC: UITableViewController {
+    
+    var users: [User] = []
+    private var indicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavUI()
-        setupTableViewUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getUsers()
     }
 
 }
@@ -20,13 +27,23 @@ class UsersTVC: UITableViewController {
 // MARK: - TableView DataSource
 extension UsersTVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.usersCell, for: indexPath) as! UsersTVCell
+        cell.configCell(user: users[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
+}
+
+// MARK: - TableView Delegate
+extension UsersTVC {
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
 }
 
 //Mark:- Private Functions
@@ -35,7 +52,16 @@ extension UsersTVC {
         self.title = ViewControllerTitle.users
     }
     
-    private func setupTableViewUI() {
-        tableView.separatorStyle = .none
+    private func getUsers() {
+        self.view.showLoader(indicator: &indicator)
+        UserFireBaseManager.shared.getUsers { result in
+            if let usersArr = result {
+                self.users = usersArr
+                self.view.hideLoader(indicator: self.indicator)
+                self.tableView.reloadData()
+            } else {
+                self.view.hideLoader(indicator: self.indicator)
+            }
+        }
     }
 }
