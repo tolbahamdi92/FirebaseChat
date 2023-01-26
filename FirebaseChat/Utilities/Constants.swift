@@ -33,6 +33,7 @@ struct ViewController {
     static let signUpVC = "SignUpVC"
     static let signInVC = "SignInVC"
     static let recentVC = "RecentVC"
+    static let usersTVC = "UsersTVC"
 }
 
 //MARK:- ViewControllerTitle
@@ -40,7 +41,8 @@ struct ViewControllerTitle {
     static let signUp = "Sign Up"
     static let userDataEditing = "User Data"
     static let signIn = "Sign In"
-    static let recent = "Recent"
+    static let recent = "Recent Messages"
+    static let users = "Users"
 }
 
 //MARK:- UserDefaultsKeys

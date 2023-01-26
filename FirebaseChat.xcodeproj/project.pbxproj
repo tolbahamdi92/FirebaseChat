@@ -16,6 +16,7 @@
 		7E184A76297BDF73007F4D17 /* ValidtionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E184A75297BDF73007F4D17 /* ValidtionDataManager.swift */; };
 		7E184A78297BE41C007F4D17 /* UIView + ShowIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E184A77297BE41C007F4D17 /* UIView + ShowIndicator.swift */; };
 		7E34391F297C078A00F9F906 /* UserFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E34391E297C078A00F9F906 /* UserFireBaseManager.swift */; };
+		7E798B9F298275C20054E784 /* UsersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E798B9E298275C20054E784 /* UsersTVC.swift */; };
 		7E86CBEE29814AA4000CB727 /* RecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E86CBED29814AA4000CB727 /* RecentVC.swift */; };
 		7E88B198297933C100B228D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88B197297933C100B228D5 /* AppDelegate.swift */; };
 		7E88B19C297933C100B228D5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88B19B297933C100B228D5 /* SignUpVC.swift */; };
@@ -37,6 +38,7 @@
 		7E184A75297BDF73007F4D17 /* ValidtionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidtionDataManager.swift; sourceTree = "<group>"; };
 		7E184A77297BE41C007F4D17 /* UIView + ShowIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + ShowIndicator.swift"; sourceTree = "<group>"; };
 		7E34391E297C078A00F9F906 /* UserFireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFireBaseManager.swift; sourceTree = "<group>"; };
+		7E798B9E298275C20054E784 /* UsersTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTVC.swift; sourceTree = "<group>"; };
 		7E86CBED29814AA4000CB727 /* RecentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentVC.swift; sourceTree = "<group>"; };
 		7E88B194297933C100B228D5 /* FirebaseChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E88B197297933C100B228D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				7E88B19B297933C100B228D5 /* SignUpVC.swift */,
 				7EA57A60298109A70074916A /* SignInVC.swift */,
 				7E86CBED29814AA4000CB727 /* RecentVC.swift */,
+				7E798B9E298275C20054E784 /* UsersTVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				7E88B198297933C100B228D5 /* AppDelegate.swift in Sources */,
 				7E34391F297C078A00F9F906 /* UserFireBaseManager.swift in Sources */,
 				7E86CBEE29814AA4000CB727 /* RecentVC.swift in Sources */,
+				7E798B9F298275C20054E784 /* UsersTVC.swift in Sources */,
 				7E184A71297BC817007F4D17 /* UITextField + Icon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
