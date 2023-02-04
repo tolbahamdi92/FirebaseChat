@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func gotoApp() {
         let navController = UINavigationController()
-        let recentVC = UIStoryboard(name: StoryBoard.main, bundle: nil).instantiateViewController(identifier: ViewController.recentVC)
+        let usersTVC = UIStoryboard(name: StoryBoard.main, bundle: nil).instantiateViewController(identifier: ViewController.usersTVC)
         window?.rootViewController = navController
-        navController.pushViewController(recentVC, animated: true)
+        navController.pushViewController(usersTVC, animated: true)
     }
     
     private func screenRootApp() {

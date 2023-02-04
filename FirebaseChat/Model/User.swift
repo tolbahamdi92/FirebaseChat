@@ -12,7 +12,8 @@ enum Gender: String, Codable{
     case Female
 }
 
-struct User: Codable {
+struct User {
+    var id: String
     var name: String
     var gender: String
     var phone: String

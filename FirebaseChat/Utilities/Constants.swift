@@ -18,6 +18,7 @@ struct FireBase {
     static let images = "images"
     static let avatarName = "Avatar.jpeg"
     static let users = "Users"
+    static let messages = "messages"
 }
 
 //MARK:- UserData
@@ -28,12 +29,20 @@ struct UserData {
     static let avatar = "avatar"
 }
 
+struct MessageData {
+    static let senderId = "senderId"
+    static let content = "content"
+    static let date = "date"
+    static let type = "type"
+}
+
 //MARK:- ViewController
 struct ViewController {
     static let signUpVC = "SignUpVC"
     static let signInVC = "SignInVC"
     static let recentVC = "RecentVC"
     static let usersTVC = "UsersTVC"
+    static let messagesVC = "MessagesVC"
 }
 
 //MARK:- ViewControllerTitle
@@ -53,8 +62,9 @@ struct UserDefaultsKeys {
 
 //MARK:- Cells
 struct Cells {
-    static let genderCell: String = "Cell"
-    static let usersCell: String = "UsersTVCell"
+    static let genderCell = "Cell"
+    static let usersCell = "UsersTVCell"
+    static let messageTVCell = "MessageTVCell"
 }
 
 //MARK:- ButtonsTitle

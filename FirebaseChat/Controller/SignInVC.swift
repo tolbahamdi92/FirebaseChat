@@ -98,8 +98,9 @@ extension SignInVC {
     }
     
     private func gotoApp() {
-        let VC = UIStoryboard(name: StoryBoard.main, bundle: nil).instantiateViewController(identifier: ViewController.recentVC)
-        VC.modalPresentationStyle = .fullScreen
-        self.present(VC, animated: true, completion: nil)
+        let usersTVC = UIStoryboard(name: StoryBoard.main, bundle: nil).instantiateViewController(identifier: ViewController.usersTVC)
+        let navController = UINavigationController(rootViewController: usersTVC)
+        navController.modalPresentationStyle = .overFullScreen
+        present(navController, animated: true, completion: nil)
     }
 }

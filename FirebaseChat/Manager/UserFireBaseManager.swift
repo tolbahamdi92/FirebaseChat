@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import FirebaseDatabase
-import FirebaseStorage
 
 class UserFireBaseManager {
     
@@ -25,14 +25,14 @@ class UserFireBaseManager {
             if error != nil {
                 completion(error, nil)
             } else {
-                let user = result!.user
-                self.uploadImageData(image: avatar, userId: user.uid, userName: name) { imgurl in
+                let userId = result!.user.uid
+                self.uploadImageData(image: avatar, userId: userId, userName: name) { imgurl in
                     let userDic = [UserData.name: name, UserData.gender: gender, UserData.phone: phone, UserData.avatar: imgurl ?? ""]
-                    self.saveDataUser(userDic: userDic, userId: user.uid) { (error, refernce) in
+                    self.saveDataUser(userDic: userDic, userId: userId) { (error, refernce) in
                         if error != nil{
                             completion(error, nil)
                         } else {
-                            completion(nil,User(name: name, gender: gender, phone: phone, avatar: imgurl ?? ""))
+                            completion(nil,User(id: userId, name: name, gender: gender, phone: phone, avatar: imgurl ?? ""))
                         }
                     }
                 }
@@ -55,16 +55,42 @@ class UserFireBaseManager {
         Auth.auth().currentUser?.uid
     }
     
+    func getUser(with userId: String, completion: @escaping ((User?) -> Void)) {
+        UserFireBaseManager.DBref.child(FireBase.users).child(userId).observe(.value) { snap in
+            if let data = snap.value as? [String: Any] {
+                completion(self.userFromDic(userId: userId, dic: data as NSDictionary))
+            } else {
+                completion(nil)
+            }
+        }
+        completion(nil)
+    }
+    
     func getUsers(completion: @escaping (([User]?) -> Void)) {
         var userArr: [User]? = []
-        UserFireBaseManager.DBref.child(FireBase.users).observe(.value, with: { snap in
-            let sanpShot = snap.value as? [String:Any] ?? [:]
-            let snapDic = sanpShot.filter { $0.key != self.getCurrentUserID() ?? ""}.values
-            for dic in snapDic{
-                userArr?.append(self.userFromDic(dic: dic as! NSDictionary))
+        UserFireBaseManager.DBref.child(FireBase.users).observe(.childAdded, with: { snap in
+            let userDic = snap.value as? [String:Any] ?? [:]
+            let key = snap.key
+            if key != self.getCurrentUserID() ?? "" {
+                userArr?.append(self.userFromDic(userId: key, dic: userDic as NSDictionary))
             }
-            completion(userArr)
+            if (userArr?.count ?? 0) > 0 {
+                completion(userArr)
+            } else {
+                completion(nil)
+            }
+            
         })
+        completion(nil)
+    }
+    
+    func signOut(completion: @escaping ((Error?) -> Void)) {
+        do {
+          try Auth.auth().signOut()
+            completion(nil)
+        } catch let signOutError as NSError {
+          completion(signOutError)
+        }
     }
 }
 
@@ -83,7 +109,7 @@ extension UserFireBaseManager {
     }
     
     private func uploadImageData(image: UIImage, userId: String, userName: String, completion: @escaping ((String?) -> ()) ) {
-        guard let data = image.jpegData(compressionQuality: 0.7) else {
+        guard let data = image.pngData() else {
             completion(nil)
             return
         }
@@ -111,11 +137,11 @@ extension UserFireBaseManager {
         }
     }
     
-    private func userFromDic(dic: NSDictionary) -> User {
+    private func userFromDic(userId: String, dic: NSDictionary) -> User {
         let name = dic[UserKey.name] as! String
         let gender = dic[UserKey.gender] as! String
         let phone = dic[UserKey.phone] as! String
         let avatar = dic[UserKey.avatar] as! String
-        return User(name: name, gender: gender, phone: phone, avatar: avatar)
+        return User(id: userId, name: name, gender: gender, phone: phone, avatar: avatar)
     }
 }

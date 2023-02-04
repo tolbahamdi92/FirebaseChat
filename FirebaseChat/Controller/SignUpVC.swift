@@ -52,7 +52,7 @@ class SignUpVC: UIViewController {
         setupUI()
     }
     
-    //MARK: IBAction
+    //MARK:- IBAction
     @IBAction func onClickSelectGender(_ sender: UIButton) {
         addTransparentView(frames: btnSelectGender.frame)
     }
@@ -109,7 +109,7 @@ extension SignUpVC {
     }
 }
 
-//MARK: Select Gender Functions
+//MARK:- Select Gender Functions
 extension SignUpVC {
     private func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
@@ -140,7 +140,7 @@ extension SignUpVC {
     }
 }
 
-//MARK: Select Image Functions
+//MARK:- Select Image Functions
 extension SignUpVC {
     @objc func imageTapped(){
         let alert = UIAlertController(title: Alerts.chooseImage, message: nil, preferredStyle: .actionSheet)
@@ -176,7 +176,7 @@ extension SignUpVC {
     }
 }
 
-//MARK: Private Functions
+//MARK:- Private Functions
 extension SignUpVC {
     private func setupUI() {
         self.title = ViewControllerTitle.signUp
@@ -217,9 +217,9 @@ extension SignUpVC {
     }
     
     private func gotoApp() {
-        let VC = UIStoryboard(name: StoryBoard.main, bundle: nil).instantiateViewController(identifier: ViewController.recentVC)
-        VC.modalPresentationStyle = .fullScreen
-        self.present(VC, animated: true, completion: nil)
+        let vc = UIStoryboard(name: StoryBoard.main, bundle: nil).instantiateViewController(identifier: ViewController.usersTVC)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func goToSignInVC(){
@@ -230,7 +230,7 @@ extension SignUpVC {
     }
 }
 
-//MARK: UITableViewDelegate, UITableViewDataSource
+//MARK:- UITableViewDelegate, UITableViewDataSource
 extension SignUpVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gender.count

@@ -16,6 +16,10 @@
 		7E184A76297BDF73007F4D17 /* ValidtionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E184A75297BDF73007F4D17 /* ValidtionDataManager.swift */; };
 		7E184A78297BE41C007F4D17 /* UIView + ShowIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E184A77297BE41C007F4D17 /* UIView + ShowIndicator.swift */; };
 		7E34391F297C078A00F9F906 /* UserFireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E34391E297C078A00F9F906 /* UserFireBaseManager.swift */; };
+		7E6F4E732987BD0E00388FD2 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F4E722987BD0E00388FD2 /* MessagesVC.swift */; };
+		7E6F4E752987E37F00388FD2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F4E742987E37F00388FD2 /* Message.swift */; };
+		7E6F4E772987E44E00388FD2 /* MessagesFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F4E762987E44E00388FD2 /* MessagesFirebaseManager.swift */; };
+		7E6F4E7B2987FAF300388FD2 /* MessageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F4E7A2987FAF300388FD2 /* MessageTVCell.swift */; };
 		7E798B9F298275C20054E784 /* UsersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E798B9E298275C20054E784 /* UsersTVC.swift */; };
 		7E798BA12982C0E60054E784 /* UsersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E798BA02982C0E60054E784 /* UsersTVCell.swift */; };
 		7E86CBEE29814AA4000CB727 /* RecentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E86CBED29814AA4000CB727 /* RecentVC.swift */; };
@@ -39,6 +43,10 @@
 		7E184A75297BDF73007F4D17 /* ValidtionDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidtionDataManager.swift; sourceTree = "<group>"; };
 		7E184A77297BE41C007F4D17 /* UIView + ShowIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + ShowIndicator.swift"; sourceTree = "<group>"; };
 		7E34391E297C078A00F9F906 /* UserFireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFireBaseManager.swift; sourceTree = "<group>"; };
+		7E6F4E722987BD0E00388FD2 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
+		7E6F4E742987E37F00388FD2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7E6F4E762987E44E00388FD2 /* MessagesFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesFirebaseManager.swift; sourceTree = "<group>"; };
+		7E6F4E7A2987FAF300388FD2 /* MessageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVCell.swift; sourceTree = "<group>"; };
 		7E798B9E298275C20054E784 /* UsersTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTVC.swift; sourceTree = "<group>"; };
 		7E798BA02982C0E60054E784 /* UsersTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTVCell.swift; sourceTree = "<group>"; };
 		7E86CBED29814AA4000CB727 /* RecentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentVC.swift; sourceTree = "<group>"; };
@@ -127,6 +135,7 @@
 				7EA57A60298109A70074916A /* SignInVC.swift */,
 				7E86CBED29814AA4000CB727 /* RecentVC.swift */,
 				7E798B9E298275C20054E784 /* UsersTVC.swift */,
+				7E6F4E722987BD0E00388FD2 /* MessagesVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 			children = (
 				7E184A6A297BC687007F4D17 /* GenderTabelViewCell.swift */,
 				7E798BA02982C0E60054E784 /* UsersTVCell.swift */,
+				7E6F4E7A2987FAF300388FD2 /* MessageTVCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				7E88B1B5297935F900B228D5 /* User.swift */,
+				7E6F4E742987E37F00388FD2 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 			children = (
 				7E184A75297BDF73007F4D17 /* ValidtionDataManager.swift */,
 				7E34391E297C078A00F9F906 /* UserFireBaseManager.swift */,
+				7E6F4E762987E44E00388FD2 /* MessagesFirebaseManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -334,17 +346,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E184A6E297BC733007F4D17 /* Constants.swift in Sources */,
+				7E6F4E7B2987FAF300388FD2 /* MessageTVCell.swift in Sources */,
 				7E184A78297BE41C007F4D17 /* UIView + ShowIndicator.swift in Sources */,
 				7EA57A61298109A70074916A /* SignInVC.swift in Sources */,
+				7E6F4E752987E37F00388FD2 /* Message.swift in Sources */,
 				7E184A74297BCC30007F4D17 /* UIViewController + Alert.swift in Sources */,
 				7E184A6B297BC687007F4D17 /* GenderTabelViewCell.swift in Sources */,
 				7E88B19C297933C100B228D5 /* SignUpVC.swift in Sources */,
 				7E184A76297BDF73007F4D17 /* ValidtionDataManager.swift in Sources */,
+				7E6F4E772987E44E00388FD2 /* MessagesFirebaseManager.swift in Sources */,
 				7E184A72297BC817007F4D17 /* UIImage + CircledImage.swift in Sources */,
 				7E88B1B6297935F900B228D5 /* User.swift in Sources */,
 				7E88B198297933C100B228D5 /* AppDelegate.swift in Sources */,
 				7E798BA12982C0E60054E784 /* UsersTVCell.swift in Sources */,
 				7E34391F297C078A00F9F906 /* UserFireBaseManager.swift in Sources */,
+				7E6F4E732987BD0E00388FD2 /* MessagesVC.swift in Sources */,
 				7E86CBEE29814AA4000CB727 /* RecentVC.swift in Sources */,
 				7E798B9F298275C20054E784 /* UsersTVC.swift in Sources */,
 				7E184A71297BC817007F4D17 /* UITextField + Icon.swift in Sources */,
